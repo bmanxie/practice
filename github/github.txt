@@ -1,0 +1,21 @@
+# 基於HTTP協議
+	在github創建一個目錄
+	複製HTTPS網址
+	在本機建立一樣的空目錄
+	git clone HTTPS網址
+	對Clone的倉庫進行增修
+	git add
+	git commit
+	git push # 將本機的修改上傳至github
+	
+	有人在線上git hub新增文件
+	# 本機
+	git pull # 從線上拉取文件至本機
+	
+# 基於SSH協議(推薦)
+	1. 先創建公私鑰
+	需要先安裝OpenSSH 
+	2. 在本機git目錄輸入: ssh-keygen -t rsa -C "信箱"
+	3. 上傳公鑰文件內容(id_rsa.pub)
+	4. 後續都相同
+	

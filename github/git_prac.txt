@@ -1,0 +1,69 @@
+# 創建使用者
+git config --global user.name "用戶名"
+git config --global user.email "信箱"
+
+# 創建空目錄(不要用中文)
+mkidr indexname
+
+# 進入目錄
+cd pro_git
+
+# git倉庫初始化(讓git管理目錄)
+git init
+# 會在目錄內創建新的".git"目錄，不要刪除、更改。
+
+# 查看狀態
+git status
+
+# 添加一個文件，或多個文件至緩存區
+git add 文件名
+git add 文件1 文件2 文件3 ...
+git add . # 添加目前目錄到緩存區
+
+# 上傳到版本庫
+git commit -m "註釋"
+
+# 查看版本
+git log
+git log --pretty=oneline # 顯示版本 + 註釋
+# 退回版本
+git reset --hard 版本號
+# 查看歷史最新的commit id
+git reflog
+# 小結
+ a. 先查看想回去版本的commit id
+ b. 使用git reflog 進行歷史查看，得到最新的commit id
+ 
+# 分支查看
+git branch
+# '*' 表示目前分支
+git branch 分支名 # 新建分支
+git checkout 分支名 # 切換分支
+# 合併分支
+git merge 分支名 # 被合併的分支名
+# 刪除分支  
+git branch -d 分支名  # 刪除分支前要先退出分支
+# 合併分支後，要記得將main上傳到線上(git push)
+
+# 模擬衝突
+	1.別人對線上做了修改，因此本機跟線上不一致
+	2.忘了pull，直接修改本機內容
+	3.接著push # 出現提示要先pull
+	
+# 解決衝突
+	1.git pull後出現
+		CONFLICT (content): Merge conflict in README.md
+		顯示衝突合併到對應文件內
+	2.與對方討論，留下哪些
+	
+# 忽略文件，使用情況:萬年不變的文件or不想提交到線上
+	新建.gitignore文件，對當前目錄及子目錄生效
+	範例:
+		在本機新建一個目錄(js)
+		提交本機(commit)及線上(push)
+		touch .gitignore 
+		記事本輸入/js/忽略js目錄	
+			#放入規則 
+			/js/
+		再隨便在js新增一個文件後commit, push
+		線上沒有成功提交
